@@ -1,0 +1,31 @@
+.buttons{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+
+
+  .homeLogo{
+    position: fixed;
+    right: 2%;
+    top: 2%;
+    border: solid black;
+    border-radius: 50%;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+.AnswerContainer {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+#numberInput {
+    padding: 5px;
+    font-size: 16px;
+}

@@ -1,0 +1,94 @@
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .signupcard {
+    top: 10%;
+    left: 15%;
+    width: 750px; /* Adjust the card width as needed */
+    height: 490px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  }
+
+  .row-signup{
+    width: 750px; /* Adjust the card width as needed */
+    height: 490px;
+  }
+  
+  .left-column {
+    position: relative;
+    width: 375px; /* Adjust the card width as needed */
+    height: 480px;
+  }
+  
+  .left-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 375px; /* Adjust the card width as needed */
+    height: 490px;
+  }
+
+  .form-group {
+    margin-bottom: 20px; /* Add margin between form groups */
+  }
+
+  label {
+    display: block; /* Ensure the label takes up the full width */
+    text-align: left; /* Align the label text to the left */
+  }
+
+  .welcome-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px; /* Add a gap below the welcome header */
+  }
+  
+  .icon {
+    margin-right: 10px; /* Add spacing between the icon and text */
+  }
+  
+  .welcome-text {
+    font-size: 40px; /* Adjust the font size of the welcome text */
+    margin: 0; /* Reset margin to eliminate default spacing */
+  }
+
+  .button{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    border: none;
+    background: linear-gradient(to right, rgb(30, 140, 230) 0%, rgb(28, 121, 227) 50%, rgb(38, 127, 187) 100%);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .button a:hover {
+    color: white;
+  }
+
+  .button:hover {
+    color: white;
+    background: linear-gradient(to right, rgb(225, 22, 22) 0%, rgb(225, 14, 70) 50%, rgb(225, 10, 96) 100%);
+  }
+  

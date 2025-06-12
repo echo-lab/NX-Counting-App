@@ -1,0 +1,260 @@
+.body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.cookiecol{
+  height: 100vh; 
+  position: relative;
+  min-width: 400px;
+}
+
+.graybg{
+  background-color: #D3D3D3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.background-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+.background-container img {
+  margin: 5%;
+  margin-left: 30px;
+  width: 300px;
+  height: 600px;
+  z-index: 0;
+}
+
+.card {
+  position: absolute;
+  margin: 2%;
+  bottom: 0;
+  left: 0;
+  font-size: small;
+  z-index: 25;
+}
+
+.cookieContainer {
+  position: absolute;
+  top: 210px;
+  left: 17%;
+  display: inline-block;
+}
+
+.cookieContainer img {
+  width: 80px;
+  height: 50px;
+}
+
+.circle {
+  border: 4px solid yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5);
+  animation: glow 2s infinite alternate;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+
+/* css for tracking clicked cookies*/
+.clickedCookie {
+  border: 4px solid yellow;
+  border-radius: 50%; 
+  /* box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5); */
+}
+
+.animationContainer {
+  position: absolute;
+  top: 200px; /* Adjust the top position as needed */
+  left: 60px; /* Adjust the left position as needed */
+  z-index: 3; /* Set a higher z-index to ensure the animation is on top */
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 0, 0.8);
+  }
+}
+
+.active .circle {
+  display: block;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+  25% {
+    transform: translateX(2px) rotate(2deg);
+  }
+  50% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+  75% {
+    transform: translateX(2px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(-2px) rotate(-2deg);
+  }
+}
+
+.wiggle {
+  animation: wiggle 0.5s ease-in-out infinite;
+}
+
+
+.card-body {
+  position: relative;
+  display: inline-block;
+  background-color: lightyellow;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index: 15; /* this needs to be higher than the z-index of .overlay but lower than .card */
+}
+
+
+.border {
+  border: 8px solid #666;
+}
+.round {
+  border-radius: 30px;
+}
+
+.bigBird {
+  height: 250px;
+  width: auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 390px;
+}
+
+.tray-container {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  top: 5%;
+  right: 5%;
+  margin-left: 20px;
+  transform: translateX(20%);
+}
+
+.tray2, .tray3 {
+  /* position: absolute; */
+
+  height: 390px;
+  width: auto;
+  margin-left: 10px;
+  z-index: 0;
+}
+
+.buttons{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+.biscuits {
+  width: 80px;
+  height: 50px;
+  z-index: 1;
+}
+
+.greenBiscuits{
+  /* position: absolute; */
+
+  height: 390px;
+  width: 281.1px;
+  top: 0;
+}
+
+.purpleBiscuits{
+  /* position: absolute; */
+
+  height: 390px;
+  width: 281.1px;
+  top: 5%;
+}
+
+.overlay {
+  background-color: rgba(128, 128, 128, 0.5); /* change this to your preferred overlay color */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5; /* make sure this z-index is higher than all other elements' z-index in this container */
+}
+
+.anim{
+  width: 50%; 
+  height: 100%; 
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.tray-overlay1 {
+  /* position: relative; */
+
+  position: absolute;
+  top: 0;
+  width:272px;
+  height: 390px;
+  cursor: pointer;
+  z-index: 5;
+  margin-left: 13px;
+  border-radius: 50px;
+}
+
+.tray-overlay2 {
+  /* position: relative; */
+
+  position: absolute;
+  top: 0;
+  width:272px;
+  height: 388px;
+  cursor: pointer;
+  z-index: 8;
+  margin-left: 13px;
+  border-radius: 55px;
+}
+
+.glow1 {
+  box-shadow: 0 0 15px 8px greenyellow; 
+}
+
+.glow2 {
+  box-shadow: 0 0 15px 8px rgb(239, 55, 239);
+}
+
+
+.homeLogo{
+  position: fixed;
+  right: 2%;
+  top: 2%;
+  border: solid black;
+  border-radius: 50%;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

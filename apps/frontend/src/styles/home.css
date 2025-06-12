@@ -1,0 +1,117 @@
+/* home.css */
+.home {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../assests/site/menu-background.jpg');
+  background-size: cover; 
+  background-size: 100% 100%;
+  padding: 400px;
+}
+
+.button-list {
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(3, 1)fr; /* Create responsive columns */
+  gap: 5px; /* Add spacing between buttons */
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Align items vertically */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  margin: 200px auto; /* Center the list and add spacing */
+}
+
+.button-list li {
+  margin-bottom: 8px;
+}
+
+.menu-button{
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #18b7db;
+  border: none;
+  padding: 12px;
+  width: 200px;
+}
+
+.menu-button:hover {
+  color:white;
+  text-decoration: none;
+  background-color: #1151e7;
+}
+
+.profileContainer{
+  position: absolute;
+  right: 15rem;
+  z-index: 2;
+}
+
+.profileButton{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align content to the right */
+  gap: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align content to the right */
+  gap: 8px;
+  position: absolute;
+  top: 6px;
+  right: 5%;
+  z-index: 2;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #ccc;
+}
+.toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.toggle-checkbox:checked + .toggle-slider {
+  transform: translateX(24px);
+  background-color: #1151e7;
+}
+
+.clicked{
+  background-color: #ccc;
+}
+
+.rows{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Ensures items within each row align */
+  gap: 10px;
+}
+
+
+

@@ -1,0 +1,26 @@
+.animation{
+  position: relative;
+}
+
+.animation-svg {
+  position: absolute;
+  top: 210px;
+  left: 10px;
+}
+
+
+.circle-draw {
+  position: absolute;
+  top: 50px;
+}
+  
+.progress {
+    stroke: rgb(241, 241, 17);
+    fill: none;
+    stroke-opacity: 0.6;
+    stroke-width: 25;
+    stroke-dasharray: 25 15;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.5s ease;
+    height: 100%;
+  }  

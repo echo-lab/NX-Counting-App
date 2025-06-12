@@ -1,0 +1,22 @@
+.dialogbutton {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    border: none;
+    background:  rgb(30, 140, 230);
+
+  }
+  
+  .dialogbutton a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  
+.dialogbutton:hover {
+    background: linear-gradient(to right, rgb(225, 22, 22) 0%, rgb(225, 14, 70) 50%, rgb(225, 10, 96) 100%);
+  }

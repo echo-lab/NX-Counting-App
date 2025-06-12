@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.select-values-page {
+  text-align: center;
+  background: url('../assests/site/menu-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  padding: 50px 20px;
+  min-height: 100vh;
+}
+
+.form-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* Make all labels bold and ensure they are displayed as block elements with margin */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Increase bottom margin for inputs to clearly separate each label/input pair */
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 16px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #18b7db;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #1151e7;
+}
+
+.error {
+  color: red;
+  margin: 10px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.button-group button.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.button-group-two {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.button-group-two button.selected {
+  background-color: #007bff;
+  color: #fff;
+}

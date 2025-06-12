@@ -1,0 +1,39 @@
+.profileCard {
+    max-width: 18rem;
+    max-height: 20rem;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    top: 5%;
+}
+
+.profileimage img {
+    transition: all 0.5s;
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: white;
+    font-size: 15px;
+}
+
+.btn1:hover {
+    color: yellow;
+}
+
