@@ -12,7 +12,8 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { config } from 'dotenv';
-config({ path: 'apps/backend/.env.local' });
+// change from apps/backend/.env.local to .env.local to enable environment variables to be loaded on server
+config({path:'.env.local'});
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -229,6 +230,9 @@ app.post("/register", async (req, res) => {
           voice: voice,
           audioConfig: { audioEncoding: 'MP3' },
         };
+      
+      // debugging
+      console.log("Received request for text-to-speech synthesis:", request);
 
       const response = await fetch('https://texttospeech.googleapis.com/v1/text:synthesize?key=' + GOOGLE_API_KEY, {
             method: 'POST',
@@ -238,10 +242,6 @@ app.post("/register", async (req, res) => {
             body: JSON.stringify(request),
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
       const data = await response.json();
         res.json(data);
     } catch (error) {
@@ -249,7 +249,18 @@ app.post("/register", async (req, res) => {
         res.status(500).json({ message: error.toString() });
     }
 });
-  
+
+// Serve static files from the React app (after all API routes)
+// use process.cwd() to get the current working directory
+// this allows the server to serve the React app from the correct directory instead of the local directory
+app.use(express.static(process.cwd()));
+
+// Handle React routing, return all requests to React app
+// same concept as above, use process.cwd() to get the current working directory
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'index.html'));
+});
+
 connectToDb()
   .then(() => {
     console.log("Successfully Connected to DB");
