@@ -27,10 +27,10 @@ function AnimationNoCircle({ onAnimationFinish }) {
 
   // useEffect hook to update progress ellipse based on percentage
   useEffect(() => {
-    let progressEllipse = document.querySelector('.progress');
-    let rx = parseFloat(progressEllipse.getAttribute('rx'));
-    let ry = parseFloat(progressEllipse.getAttribute('ry'));
-    let perimeter = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry)));
+    const progressEllipse = document.querySelector('.progress');
+    const rx = parseFloat(progressEllipse.getAttribute('rx'));
+    const ry = parseFloat(progressEllipse.getAttribute('ry'));
+    const perimeter = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry)));
     progressEllipse.style.strokeDasharray = perimeter;
     progressEllipse.style.strokeDashoffset = perimeter - (percent * perimeter) / 100;
 

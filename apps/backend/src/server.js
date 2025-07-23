@@ -132,7 +132,7 @@ app.post("/register", async (req, res) => {
       const user = jwt.verify(token, JWT_SECRET);
       const username = user.name;
 
-      let updateField = {};
+      const updateField = {};
       updateField[`answers.${pageType}`] = answers;
   
       const updatedUser = await User.findOneAndUpdate(
