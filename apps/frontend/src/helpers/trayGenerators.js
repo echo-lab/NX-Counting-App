@@ -80,7 +80,7 @@ const cookiePositions = {
 
   // Function to generate DynamicTray
   export function generateDynamicTray(numCookies, trayW, trayH, cookieW, cookieH, padding, minGap) {
-    let placedCookies = [];
+    const placedCookies = [];
   
     for (let i = 0; i < numCookies; i++) {
       let newCookie;
