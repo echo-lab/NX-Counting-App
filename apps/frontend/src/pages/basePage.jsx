@@ -84,13 +84,24 @@ function basePage() {
   
     const handleTrayClick = (trayType) => {
       setSelectedTray(trayType);
-      if (trayType === "greenTray") {
-        textToSpeech("Correct");
+      // if the correct tray has been clicked
+      if (trayType === "greenTray" && baseData.pages[currentPage].greenTray[0].biscuits.length === baseData.pages[currentPage].cookies.length) {
+        textToSpeech("Green is correct, Good job!");
+      }
+      else if (trayType === "purpleTray" && baseData.pages[currentPage].purpleTray[0].biscuits.length === baseData.pages[currentPage].cookies.length){
+        textToSpeech("Purple is correct, Well done!");
+      }
+      // if the wrong tray has been clicked
+      else if (trayType === "greenTray" && baseData.pages[currentPage].greenTray[0].biscuits.length !== baseData.pages[currentPage].cookies.length) {
+        const explanation = `No, ${trayType} has ${baseData.pages[currentPage].greenTray[0].biscuits.length} cookies. Try again!`;
+        textToSpeech(explanation);
       }
       else{
-        textToSpeech("Incorrect");
+        const explanation = `Wrong answer, ${trayType} has ${baseData.pages[currentPage].purpleTray[0].biscuits.length} cookies. Try again!`;
+        textToSpeech(explanation);
       }
       storeAnswer(currentPage, trayType);
+      
     };
 
     const handleNextPage = () => {

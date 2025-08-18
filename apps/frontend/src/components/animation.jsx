@@ -27,10 +27,10 @@ function Animation({ onAnimationFinish }) {
 
   // update progress ellipse based on percentage
   useEffect(() => {
-    let progressEllipse = document.querySelector('.progress'); // select element
-    let rx = parseFloat(progressEllipse.getAttribute('rx')); 
-    let ry = parseFloat(progressEllipse.getAttribute('ry'));
-    let perimeter = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry))); // calculate
+    const progressEllipse = document.querySelector('.progress'); // select element
+    const rx = parseFloat(progressEllipse.getAttribute('rx')); 
+    const ry = parseFloat(progressEllipse.getAttribute('ry'));
+    const perimeter = Math.PI * (3 * (rx + ry) - Math.sqrt((3 * rx + ry) * (rx + 3 * ry))); // calculate
     progressEllipse.style.strokeDasharray = perimeter; // set stroke dash array to perimeter
     progressEllipse.style.strokeDashoffset = perimeter - (percent * perimeter) / 100; // update offset based on percentage
 
