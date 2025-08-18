@@ -183,6 +183,11 @@ const TouchTrainingPage = () => {
               allCookies.forEach(cookie => {
                 cookie.style.pointerEvents = 'auto';
               });
+              const instruction = `Great job! Now draw a circle with your finger by following the yellow line.`;
+              setTimeout(() => {
+                textToSpeech(instruction, () => {
+                })
+              }, 3000);
             }
           } else {
             console.error("SpeechSynthesis API is not supported in this browser.");
@@ -242,6 +247,22 @@ const TouchTrainingPage = () => {
 
   const handleTrayClick = (trayType) => {
     setSelectedTray(trayType);
+    // if the correct tray has been clicked
+    if (trayType === "greenTray" && sectionTrainData.pages[currentPage].greenTray[0].biscuits.length === sectionTrainData.pages[currentPage].cookies.length) {
+      textToSpeech("Green is correct, Good job!");
+    }
+    else if (trayType === "purpleTray" && sectionTrainData.pages[currentPage].purpleTray[0].biscuits.length === sectionTrainData.pages[currentPage].cookies.length){
+      textToSpeech("Purple is correct, Well done!");
+    }
+    // if the wrong tray has been clicked
+    else if (trayType === "greenTray" && sectionTrainData.pages[currentPage].greenTray[0].biscuits.length !== sectionTrainData.pages[currentPage].cookies.length) {
+      const explanation = `No, ${trayType} has ${sectionTrainData.pages[currentPage].greenTray[0].biscuits.length} cookies. Try again!`;
+      textToSpeech(explanation);
+    }
+    else{
+      const explanation = `Wrong answer, ${trayType} has ${sectionTrainData.pages[currentPage].purpleTray[0].biscuits.length} cookies. Try again!`;
+      textToSpeech(explanation);
+    }
     storeAnswer(currentPage, trayType);
   };
 
