@@ -1,3 +1,4 @@
+import { config } from 'dotenv';
 import {connectToDb} from './db.js';
 import express from 'express';
 import './database/userDetails.js';
@@ -11,7 +12,8 @@ import fetch from 'node-fetch';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { config } from 'dotenv';
+//import { config } from 'dotenv'; // might move it before importing the db.js file
+
 // change from apps/backend/.env.local to .env.local to enable environment variables to be loaded on server
 config({path:'.env.local'});
 
