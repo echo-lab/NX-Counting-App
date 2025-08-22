@@ -327,7 +327,7 @@ animals: [
     top: "70%",
     left: "5%",
     height: "150px"
-  },,
+  },
   {
     id: 8,
     name:"horse8",
@@ -402,7 +402,7 @@ animals: [
     top: "60%",
     left: "35%",
     height: "150px"
-  },,
+  },
   {
     id: 8,
     name:"hippo8",
@@ -469,7 +469,7 @@ animals: [
     top: "60%",
     left: "70%",
     height: "250px"
-  },,
+  },
   {
     id: 8,
     name:"octopus8",
