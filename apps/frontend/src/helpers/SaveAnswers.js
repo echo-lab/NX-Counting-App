@@ -3,7 +3,10 @@ export async function saveAnswers(pageType) {
 
   try {
     let answersKey;
-    let answersData;
+    const answersData = {
+      answers: [],
+      pageType: ''
+    };
 
     switch (pageType) {
       case 'baselineTraining':
@@ -44,10 +47,12 @@ export async function saveAnswers(pageType) {
       return;
     }
 
-    answersData = {
-       answers : answers,
-       pageType: answersKey
-    };
+    // answersData = {
+    //    answers : answers,
+    //    pageType: answersKey
+    // };
+    answersData.answers = answers;
+    answersData.pageType = answersKey;
 
     console.log("answerData:", answersData)
 

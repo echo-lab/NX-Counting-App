@@ -84,7 +84,8 @@ const cookiePositions = {
   
     for (let i = 0; i < numCookies; i++) {
       let newCookie;
-      let tries = 0, maxTries = 100;
+      let tries = 0;
+      const maxTries = 100;
   
       while (tries < maxTries) {
         newCookie = {

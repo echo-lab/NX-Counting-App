@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 //const mongoUrl = `mongodb+srv://${uname}:${pw}@cluster0.oypxwnq.mongodb.net/?retryWrites=true&w=majority`;
-//const mongoUrl = "mongodb://127.0.0.1:27017/counting";
-const mongoUrl = process.env.MONGODB_URL;
+const mongoUrl = "mongodb://127.0.0.1:27017/counting";
+//const mongoUrl = process.env.MONGODB_URL;
 
 async function connectToDb(){
     try {

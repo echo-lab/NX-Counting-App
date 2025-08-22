@@ -17,7 +17,7 @@ import { textToSpeech } from '../helpers/textToSpeech';
 import {handleInteraction, handleNextClickTraining} from '../helpers/imageTouchData';
 import { saveAnswers } from "../helpers/SaveAnswers";
 
-function basePage() {
+function BaseTrainingPage() {
     const { sectionTrainData, selectedOption } = useAppData();
     const { page } = useParams();
     const currentPage = parseInt(page);
@@ -269,4 +269,4 @@ function basePage() {
   );
 }
 
-export default basePage;
+export default BaseTrainingPage; 
