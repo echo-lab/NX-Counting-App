@@ -43,21 +43,45 @@ function Canvas({ onAnimationFinish }) {
   
     
     const isCircle = () => {
-      if (circlePath.length < 10) {
+      if (circlePath.length < 20) {
         console.log('Too few points to form a circle');
         return false; // Not enough points to form a circle
       }
     
-      const start = circlePath[0];
+      //const start = circlePath[0];
       const end = circlePath[circlePath.length - 1];
-    
-      // Check if the start and end points are close enough
-      const distance = Math.sqrt((start.x - end.x) ** 2 + (start.y - end.y) ** 2);
-      console.log('Start-End Distance:', distance);
-      if (distance > 20) { // Adjust the threshold as needed
-        console.log('Start and end points are too far apart');
-        return false;
+      let isClosed = false;
+
+      // Define how many of the initial points to check against.
+      // Let's check against the first 25% of the path, up to a max of 30 points.
+      const checkZoneLength = Math.min(40, Math.floor(circlePath.length * 0.5));
+
+      // Check if the path closes on itself
+      // Loop through the first few points of the path and see if the
+      // endpoint is close to any of them.
+      for (let i = 0; i < checkZoneLength; i++) {
+          const pointNearStart = circlePath[i];
+          const distance = Math.sqrt((pointNearStart.x - end.x) ** 2 + (pointNearStart.y - end.y) ** 2);
+
+          if (distance < 25) { // Threshold for considering the loop "closed"
+              isClosed = true;
+              console.log('Path is considered closed.');
+              break; // Exit the loop once we find a close point
+          }
       }
+
+      if (!isClosed) {
+          console.log('Start and end points are too far apart');
+          return false;
+      }
+      
+      // // Check if the start and end points are close enough
+      // const distance = Math.sqrt((start.x - end.x) ** 2 + (start.y - end.y) ** 2);
+      // console.log('Start-End Distance:', distance);
+      // if (distance > 20) { // Adjust the threshold as needed
+      //   console.log('Start and end points are too far apart');
+      //   return false;
+      // }
     
       // Calculate the center of the path
       const centerX = (Math.min(...circlePath.map((p) => p.x)) + Math.max(...circlePath.map((p) => p.x))) / 2;

@@ -4,7 +4,7 @@ import '../styles/animation.css';
 // AnimationNoCircle component to handle animation logic without circleDraw function
 function AnimationNoCircle({ onAnimationFinish }) {
   const [percent, setPercent] = useState(0); // track progress
-  const [animationFinished, setAnimationFinished] = useState(false); // track if animation finished
+  //const [animationFinished, setAnimationFinished] = useState(false); // track if animation finished
 
   // useEffect hook to handle animation progress
   useEffect(() => {

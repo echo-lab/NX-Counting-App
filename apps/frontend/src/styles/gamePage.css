@@ -61,8 +61,8 @@
 .circle {
   border: 4px solid yellow;
   border-radius: 50%;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 0, 0.5);
-  animation: glow 2s infinite alternate;
+  box-shadow: 0 0 10px 0px rgba(255, 255, 0, 0.9);
+  animation: border-glow 2s infinite alternate;
   animation-iteration-count: infinite;
   cursor: pointer;
 }

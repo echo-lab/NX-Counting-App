@@ -19,7 +19,7 @@ import {handleInteraction, handleNextClickTouchData} from '../helpers/imageTouch
 import { saveAnswers } from "../helpers/SaveAnswers";
 
 
-const gamePage = () => {
+const GamePage = () => {
   const { Data, audioData, selectedOption } = useAppData();
   const { page } = useParams();
   const currentPage = parseInt(page);
@@ -54,7 +54,7 @@ const gamePage = () => {
   const clickedCookies = useRef(new Set());
 
   // state to track mouse moevement
-  const [isDrawing, setIsDrawing] = useState(false);
+  //const [isDrawing, setIsDrawing] = useState(false);
 
   const handleAnimationFinish = () => {
     
@@ -285,8 +285,7 @@ const gamePage = () => {
               setstartAnimation(true);
               const instruction = `Great job! Now draw a circle with your finger by following the yellow line.`;
               setTimeout(() => {
-                textToSpeech(instruction, () => {
-                })
+                textToSpeech(instruction);
               }, 1000);
             }
             return newCount;
@@ -354,6 +353,7 @@ const gamePage = () => {
                   src={biscuit.img}
                   id={biscuit.id}
                   className="biscuits"
+                  alt=""
                   style={{
                     position: "absolute",
                     top: biscuit.top,
@@ -385,6 +385,7 @@ const gamePage = () => {
                   src={biscuit.img}
                   id={biscuit.id}
                   className="biscuits"
+                  alt=""
                   style={{
                     position: "absolute",
                     top: biscuit.top,
@@ -414,4 +415,4 @@ const gamePage = () => {
   );
 };
 
-export default gamePage;
+export default GamePage;

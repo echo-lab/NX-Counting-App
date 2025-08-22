@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/home.css";
-import image3 from "../assests/image3.jpg";
+//import image3 from "../assests/image3.jpg";
 import "bootstrap/dist/css/bootstrap.css";
 import Profile from "../components/profile.jsx";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -29,7 +29,7 @@ function Home() {
         });
         setuserData(response.data.data);
         console.log(response.data.data);
-        if (response.data.data == "token expired") {
+        if (response.data.data === "token expired") { // == was used here
           alert("Login again");
           window.localStorage.clear();
           window.location.href = "/";
