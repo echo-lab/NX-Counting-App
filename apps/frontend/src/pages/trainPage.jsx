@@ -12,7 +12,7 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DialogBox from "../components/dialogBox";
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import { useSound } from '../helpers/SoundContext';
+//import { useSound } from '../helpers/SoundContext';
 import { textToSpeech } from '../helpers/textToSpeech';
 import { handleInteraction, handleNextClickTraining } from '../helpers/imageTouchData';
 import { saveAnswers } from "../helpers/SaveAnswers";
@@ -34,12 +34,12 @@ const TrainingPage = () => {
   const [showTray2, setShowTray2] = useState(false);
   const once = useRef(false);
   const spokenRef = useRef(false);
-  const { soundEnabled } = useSound();
+  //const { soundEnabled } = useSound();
   
-  const trayW = 300, trayH = 400;
+  //const trayW = 300, trayH = 400;
   const cookieW = 60, cookieH = 60;
-  const padding = 20;
-  const minGap = cookieW * 1.1;
+  // const padding = 20;
+  // const minGap = cookieW * 1.1;
   
   const navigate = useNavigate();
 
@@ -189,6 +189,7 @@ const TrainingPage = () => {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,
@@ -221,6 +222,7 @@ const TrainingPage = () => {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,

@@ -165,6 +165,7 @@ function BasePage2() {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,
@@ -195,6 +196,7 @@ function BasePage2() {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,

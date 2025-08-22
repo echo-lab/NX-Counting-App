@@ -93,7 +93,7 @@ const TouchTrainingPage = () => {
       speakUtterance();
       spokenRef.current = true;
     }
-  }, [currentPage]);
+  }, [currentPage, speakUtterance]);
 
   useEffect(() => {
     if(!once.current){
@@ -320,6 +320,7 @@ const TouchTrainingPage = () => {
                   src={biscuit.img}
                   id={biscuit.id}
                   className="biscuits"
+                  alt=""
                   style={{
                     position: "absolute",
                     top: biscuit.top,
@@ -351,6 +352,7 @@ const TouchTrainingPage = () => {
                   src={biscuit.img}
                   id={biscuit.id}
                   className="biscuits"
+                  alt=""
                   style={{
                     position: "absolute",
                     top: biscuit.top,

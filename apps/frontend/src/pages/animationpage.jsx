@@ -91,7 +91,7 @@ const AnimationPage = () => {
       speakUtterance();
       spokenRef.current = true;
     }
-  }, [currentPage]);
+  }, [currentPage, speakUtterance]);
 
   useEffect(() => {
     if (!once.current) {
@@ -235,6 +235,7 @@ const AnimationPage = () => {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,
@@ -265,6 +266,7 @@ const AnimationPage = () => {
                     src={biscuit.img}
                     id={biscuit.id}
                     className="biscuits"
+                    alt=""
                     style={{
                       position: "absolute",
                       top: biscuit.top,

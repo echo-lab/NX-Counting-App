@@ -16,7 +16,7 @@ function SignupPage() {
     const response = await axios.post(`/register`,{
       name: name,
     }).then((res) =>{
-      if(res.status == 200){
+      if(res.status === 200){ // == was used here
         window.localStorage.setItem("token", res.data.data);
         window.localStorage.setItem("loggedIn", true);
       }
