@@ -38,7 +38,9 @@ function App() {
   useEffect(() => {
     const unlockAudio = () => {
       const silent = new Audio('data:audio/mp3;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMHumPMHBgAAA');
-      silent.play().catch(() => {});
+      silent.play().catch(() => {
+        // Ignore audio unlock errors
+      });
       document.body.removeEventListener('click', unlockAudio);
       document.body.removeEventListener('touchend', unlockAudio);
     };
