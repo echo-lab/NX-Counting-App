@@ -1,83 +1,67 @@
-# Counting-App on NX
+# NX-Counting-App
 
 ✨ This is Virginia Tech's Echolab [Counting app research project](https://github.com/echo-lab/Counting-App) but within an [NX](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) workspace.
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+A counting and early math learning app built with React and Node.js, designed for preschoolers to practice counting, number recognition, and basic arithmetic through interactive games and activities.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Features
 
-## Finish your CI setup
+- **Interactive Counting Games**: Touch-based counting exercises with visual feedback and audio cues.
+- **Multiple Game Modes**:
+  - Touch Training: Tap cookies to count and hear numbers.
+  - Animation Training: Watch animations and count objects.
+  - Baseline Training: Compare quantities and choose the correct tray.
+  - Practice Mode: Free-play counting activities.
+- **Audio Support**:
+  - Text-to-Speech (TTS) for instructions and feedback.
+  - Sound effects for interactions (trills, circling sounds).
+  - Audio unlock on first user gesture for iOS/iPad compatibility.
+- **Progress Tracking**: Save user answers and touch data for analysis.
+- **Responsive Design**: Works on desktop, tablet, and mobile devices.
+- **Accessibility**: Alt text for images, keyboard navigation, and screen reader support.
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/sQMsZWJQvf)
+## Why Nx?
 
+We chose Nx as our workspace tool for several reasons:
 
-## Run tasks
+- **Monorepo Management**: Nx allows us to manage both the frontend (React) and backend (Node.js/Express) in a single repository, simplifying development and deployment.
+- **Build Optimization**: Nx's intelligent build system only rebuilds what has changed, making development faster and CI/CD more efficient.
+- **Code Sharing**: Easy sharing of types, utilities, and configurations between frontend and backend.
+- **Scalability**: As the project grows, Nx makes it easy to add new apps, libraries, and tools without restructuring the codebase.
+- **Developer Experience**: Built-in generators, linting, testing, and caching out of the box.
+- **CI/CD Integration**: Nx Cloud provides distributed task execution and remote caching, speeding up builds in CI.
 
-To run the dev server for your app, use:
+## Getting Started
 
-```sh
-npx nx serve frontend
-```
+### Prerequisites
 
-To create a production bundle:
+- Node.js (v18 or higher)
+- npm or yarn
+- MongoDB (for data storage)
 
-```sh
-npx nx build frontend
-```
+### Installation
 
-To see all available targets to run for a project, run:
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd NX-Counting-App
+   ```
 
-```sh
-npx nx show project frontend
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+3. Set up environment variables:
+   - Create a `.env.local` file in the root directory
+   - Add your MongoDB connection string and other required variables
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+4. Start the development servers:
+   ```bash
+   # Start both frontend and backend
+   npm run dev
+   
+   # Or start individually
+   npm run start:frontend
+   npm run start:backend
+   ```
