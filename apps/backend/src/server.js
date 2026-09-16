@@ -227,10 +227,50 @@ app.post("/register", async (req, res) => {
   app.post('/speech/synthesize', async (req, res) => {
     try {
       const {text} = req.body;
+
+      const escapeXml = (str) => {
+        // SSML must be valid XML.
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&apos;');
+      };
+
+      const toSsmlWithPunctuationPauses = (rawText) => {
+        const escaped = escapeXml(rawText ?? '').replace(/\s+/g, ' ').trim();
+
+        // If caller already provided SSML, pass it through.
+        if (/^\s*<speak[\s>]/i.test(escaped) || /<break\s+time=/i.test(escaped)) {
+          return escaped;
+        }
+
+        // Add a short pause after sentence-ending punctuation.
+        // Examples: "is? " -> "?<break.../>"
+        let withSentenceBreaks = escaped.replace(
+          /([!?])(['")\]]*)(\s+|$)/g,
+          '$1$2<break time="1500ms"/>$3'
+        );
+
+        // Add a smaller pause after commas.
+        withSentenceBreaks = withSentenceBreaks.replace(
+          /,(\s+|$)/g,
+          ',<break time="250ms"/>$1'
+        );
+
+        // Add a smaller pause after periods.
+        withSentenceBreaks = withSentenceBreaks.replace(
+          /\.(\s+|$)/g,
+          '.<break time="900ms"/>$1'
+        );
+
+        return `<speak>${withSentenceBreaks}</speak>`;
+      };
       
       const  voice = {languageCode: 'en-US', name :'en-US-Neural2-G' };
       const request = {
-          input: { text: text},
+          input: { ssml: toSsmlWithPunctuationPauses(text) },
           voice: voice,
           audioConfig: { audioEncoding: 'MP3' },
         };

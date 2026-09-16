@@ -63,7 +63,7 @@ const AnimationPage = () => {
             setShowBigBird(true);
             setShowTray2(true);
             if (soundEnabled) {
-              const utterance = `Can Big Bird also have ${animationData.pages[currentPage].cookies.length} cookies? Which tray has ${animationData.pages[currentPage].cookies.length} cookies? Green or purple?`;
+              const utterance = `Can Big Bird also have ${animationData.pages[currentPage].cookies.length} cookies? Which tray has ${animationData.pages[currentPage].cookies.length} cookies? Green? or Purple?`;
               textToSpeech(utterance);
             }
             spokenRef2.current = true;
@@ -95,20 +95,19 @@ const AnimationPage = () => {
 
   useEffect(() => {
     if (!once.current) {
-      document.addEventListener('touchstart', (event) => {
+      const handleTouchStart = (event) => {
         handleInteraction(event, setTouchData);
-      });
+      };
+      document.addEventListener('touchstart', handleTouchStart);
       once.current = true;
       return () => {
-        document.removeEventListener('touchstart', (event) => {
-          handleInteraction(event, setTouchData);
-        });
+        document.removeEventListener('touchstart', handleTouchStart);
       };
     }
   }, []);
 
   const message = showMessage
-    ? `Can Big Bird also have ${animationData.pages[currentPage].cookies.length} cookies? Which tray has ${animationData.pages[currentPage].cookies.length} cookies? Green or purple?`
+    ? `Can Big Bird also have ${animationData.pages[currentPage].cookies.length} cookies? Which tray has ${animationData.pages[currentPage].cookies.length} cookies? Green? or purple?`
     : `Cookie Monster has ${animationData.pages[currentPage].cookies.length} cookies. Let's count together!`;
 
   useEffect(() => {
@@ -137,6 +136,7 @@ const AnimationPage = () => {
       setShowTray2(false);
       setShowBigBird(false);
       setShowMessage(false);
+      setstartAnimation(false);
       setActiveCookieIndex(0);
       setshowGrayArea(false);
       setSelectedTray(null);
@@ -153,6 +153,7 @@ const AnimationPage = () => {
       setShowTray2(false);
       setShowBigBird(false);
       setShowMessage(false);
+      setstartAnimation(false);
       setActiveCookieIndex(0);
       setshowGrayArea(false);
       setSelectedTray(null);

@@ -596,6 +596,18 @@ const Data = {
               top: "160px",
               left: "50px",
             },
+            {
+              id: 4,
+              img: rasinCookie,
+              top: "200px",
+              left: "150px",
+            },
+            {
+              id: 5,
+              img: rasinCookie,
+              top: "260px",
+              left: "50px",
+            },
           ],
         },
       ],

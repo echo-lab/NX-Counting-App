@@ -38,12 +38,10 @@ function Canvas({ onAnimationFinish }) {
       setCirclePath((prevPath) => [...prevPath, {x, y}]); // Store the path of the circle
     }
   };
-
-
-  
     
     const isCircle = () => {
-      if (circlePath.length < 20) {
+      // Keep minimum point count low so we don't reject too early.
+      if (circlePath.length < 10) {
         console.log('Too few points to form a circle');
         return false; // Not enough points to form a circle
       }
@@ -53,8 +51,7 @@ function Canvas({ onAnimationFinish }) {
       let isClosed = false;
 
       // Define how many of the initial points to check against.
-      // Let's check against the first 25% of the path, up to a max of 30 points.
-      const checkZoneLength = Math.min(40, Math.floor(circlePath.length * 0.5));
+      const checkZoneLength = Math.min(50, Math.floor(circlePath.length * 0.7));
 
       // Check if the path closes on itself
       // Loop through the first few points of the path and see if the
@@ -63,7 +60,8 @@ function Canvas({ onAnimationFinish }) {
           const pointNearStart = circlePath[i];
           const distance = Math.sqrt((pointNearStart.x - end.x) ** 2 + (pointNearStart.y - end.y) ** 2);
 
-          if (distance < 25) { // Threshold for considering the loop "closed"
+          // More forgiving close-loop threshold.
+          if (distance < 55) {
               isClosed = true;
               console.log('Path is considered closed.');
               break; // Exit the loop once we find a close point
@@ -83,9 +81,22 @@ function Canvas({ onAnimationFinish }) {
       //   return false;
       // }
     
+      const minX = Math.min(...circlePath.map((p) => p.x));
+      const maxX = Math.max(...circlePath.map((p) => p.x));
+      const minY = Math.min(...circlePath.map((p) => p.y));
+      const maxY = Math.max(...circlePath.map((p) => p.y));
+      const width = maxX - minX;
+      const height = maxY - minY;
+
+      // Reject very tiny scribbles/noise.
+      if (width < 50 || height < 50) {
+        console.log('Shape too small to be a circle-like gesture');
+        return false;
+      }
+
       // Calculate the center of the path
-      const centerX = (Math.min(...circlePath.map((p) => p.x)) + Math.max(...circlePath.map((p) => p.x))) / 2;
-      const centerY = (Math.min(...circlePath.map((p) => p.y)) + Math.max(...circlePath.map((p) => p.y))) / 2;
+      const centerX = (minX + maxX) / 2;
+      const centerY = (minY + maxY) / 2;
       console.log('Center:', { centerX, centerY });
     
       // Check if all points are roughly equidistant from the center
@@ -94,12 +105,13 @@ function Canvas({ onAnimationFinish }) {
       const radiusVariance = radii.reduce((sum, r) => sum + Math.abs(r - avgRadius), 0) / radii.length;
       console.log('Average Radius:', avgRadius, 'Radius Variance:', radiusVariance);
     
-      return radiusVariance < 15; // Adjust the threshold as needed
+      // Adaptive tolerance: allow more wobble on larger drawings.
+      const varianceThreshold = Math.max(25, avgRadius * 0.45);
+      return radiusVariance < varianceThreshold;
    };
   
 
   // stop drawing on canvas
-
   const stopDrawing = () => {
     // check for isDrawing state
     if (!isDrawing) return;

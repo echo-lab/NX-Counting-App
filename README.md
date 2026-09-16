@@ -42,26 +42,23 @@ We chose Nx as our workspace tool for several reasons:
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd NX-Counting-App
-   ```
+  
+   `git clone <repository-url>
+   cd NX-Counting-App`
+   
 
 2. Install dependencies:
-   ```bash
-   npm install
-   ```
+   `npm install`
 
 3. Set up environment variables:
    - Create a `.env.local` file in the root directory
-   - Add your MongoDB connection string and other required variables
-
+   - Ask an admin for the `.env.local` file code
+   - Run the command `npx nx-cloud login`. This will take you to a page requesting you to sign in. Create an NX cloud account and rerun the command again.
+     
 4. Start the development servers:
-   ```bash
-   # Start both frontend and backend
-   npm run dev
-   
-   # Or start individually
-   npm run start:frontend
-   npm run start:backend
-   ```
+   - in one terminal, run `npx nx serve backend`
+   - in another terminal, run `npx nx serve frontend`
+
+## Note
+
+We have upgraded the voice agent to **Gemini** to improve user experience in another branch, but that version is not deployed yet. The current deployed version uses Google Cloud text-to-speech system.
