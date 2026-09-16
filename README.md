@@ -3,7 +3,7 @@
 ✨ This is Virginia Tech's Echolab [Counting app research project](https://github.com/echo-lab/Counting-App) but within an [NX](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) workspace.
 
 A counting and early math learning app built with React and Node.js, designed for preschoolers to practice counting, number recognition, and basic arithmetic through interactive games and activities.
-
+New
 ## Features
 
 - **Interactive Counting Games**: Touch-based counting exercises with visual feedback and audio cues.
